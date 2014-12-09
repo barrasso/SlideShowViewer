@@ -15,6 +15,37 @@ namespace Lab8
         public Form1()
         {
             InitializeComponent();
+            this.listBox.Text = "";
+        }
+
+        private void openCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
