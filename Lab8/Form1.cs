@@ -13,12 +13,16 @@ namespace Lab8
 {
     public partial class Form1 : Form
     {
-        // strings
+
         public string openCollectionFileName;
+
+        public int slideInterval;
 
         public Form1()
         {
             InitializeComponent();
+            
+            // clear list box text at startup
             this.listBox.Text = "";
         }
 
@@ -132,7 +136,32 @@ namespace Lab8
 
         private void showButton_Click(object sender, EventArgs e)
         {
+            // check for an empty list box
+            if (this.listBox.Items.Count == 0)
+            {
+                MessageBox.Show("No images to show.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
 
+            // get the interval
+            string interval = this.textBox.Text;
+
+            try
+            {
+                // convert string to int
+                this.slideInterval = Convert.ToInt32(interval);
+                // check for valid interval
+                if (this.slideInterval <= 0 || this.slideInterval > 99) throw new Exception();
+            }
+
+            catch
+            {
+                MessageBox.Show("Please enter a valid integer time interval greater than 0 or less than 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
+            // init slide viewer form
+            (new SlideViewer() { Owner = this }).ShowDialog();
         }
     }
 }
